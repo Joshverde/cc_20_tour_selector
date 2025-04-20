@@ -1,0 +1,253 @@
+/* Global styles and variables */
+:root {
+    /* Bauhaus-inspired color palette */
+    --primary-color: #1D1D1B;     /* Rich Black */
+    --secondary-color: #D21F3C;    /* Bauhaus Red */
+    --accent-color: #F2D53C;       /* Bauhaus Yellow */
+    --accent-blue: #1B75BC;        /* Bauhaus Blue */
+    --background-color: #F5F5F5;   /* Off White */
+    --card-background: #FFFFFF;    /* Pure White */
+    --text-primary: #1D1D1B;      /* Rich Black */
+    --text-secondary: #4A4A4A;    /* Dark Gray */
+    --shadow-sm: 0 2px 4px rgba(29, 29, 27, 0.1);
+    --shadow-md: 0 4px 6px rgba(29, 29, 27, 0.15);
+    --shadow-lg: 0 10px 15px rgba(29, 29, 27, 0.2);
+    --transition: all 0.3s ease;
+}
+
+/* Keep existing reset styles */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    max-width: 1400px;
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 4px rgba(29, 29, 27, 0.1);
+}
+
+.tour-gallery {
+    width: min(90%, 1400px);
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--card-background);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+}
+
+.filter-container {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.filter-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.filter-container select {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 2px solid var(--accent-blue);
+    background-color: var(--card-background);
+    color: var(--text-primary);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-container select:hover {
+    border-color: var(--secondary-color);
+}
+
+.tour-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    place-items: center;
+    justify-content: center;
+}
+
+.tour-card {
+    background-color: var(--card-background);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    transform: translateY(0);
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tour-header {
+    padding: 1.5rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--card-background);
+}
+
+.tour-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.tour-header h5 {
+    margin: 0.5rem 0 0;
+    font-size: 1.25rem;
+    color: var(--accent-color);
+}
+
+.tour-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.tour-card:hover img {
+    transform: scale(1.05);
+}
+
+.tour-card p {
+    padding: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    justify-content: center;
+}
+
+.button-container button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.read-more {
+    background-color: var(--accent-blue);
+    color: var(--primary-color);
+}
+
+.read-more:hover {
+    background-color: #80B3FF; /* Darker pastel blue */
+}
+
+.button-remove {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.button-remove:hover {
+    background-color: #FF8080; /* Darker pastel red */
+}
+
+.length-zero {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--card-background);
+    border-radius: 15px;
+    box-shadow: var(--shadow-md);
+}
+
+.refresh-button {
+    margin-top: 1rem;
+}
+
+.refresh-button button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.refresh-button button:hover {
+    background-color: var(--accent-blue);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .tour-gallery {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .tour-list {
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .tour-card img {
+        height: 200px;
+    }
+}
