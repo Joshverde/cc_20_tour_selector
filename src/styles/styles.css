@@ -115,7 +115,7 @@ h1 {
     transform: translateY(0);
     width: 100%;
     max-width: 350px;
-    height: 500px; /* Changed from 600px to 500px */
+    height: 550px; /* Changed from 500px to 550px */
     display: flex;
     flex-direction: column;
     margin: 0 auto;
